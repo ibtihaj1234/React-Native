@@ -3,6 +3,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 import Header from '../header/Header'
+import { responsiveHeight, responsiveWidth, } from 'react-native-responsive-dimensions'
 
 const LoginComp = () => {
 
@@ -27,11 +28,11 @@ const LoginComp = () => {
             <Header title='Login' />
 
             <View style={[styles.Page]}>
-                <View style={{ height: '20%' }}>
+                <View style={{ height: responsiveHeight(20) }}>
                     <Image
                         style={{
-                            height: 200,
-                            width: 200
+                            height: responsiveHeight(20),
+                            width: responsiveWidth(40)
                         }}
                         source={require('./../../assets/Logo.png')} />
                 </View>
@@ -78,13 +79,13 @@ const styles = StyleSheet.create({
     Page: {
         flex: 1,
         justifyContent: 'space-evenly',
-        width: '100%',
+        width: responsiveWidth(100),
         alignItems: 'center',
     },
     Form: {
-        height: '60%',
-        gap: 10,
-        width: '80%',
+        height: responsiveHeight(60),
+        gap: responsiveHeight(1),
+        width: responsiveWidth(80),
         justifyContent: 'flex-start',
     }
 })

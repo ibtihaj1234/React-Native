@@ -4,17 +4,21 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { FAB, Card } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon1 from 'react-native-vector-icons/Entypo'
+import { responsiveWidth, responsiveHeight, responsiveFontSize } from 'react-native-responsive-dimensions'
 
 
 const HomeComp = () => {
-
 
   const navigation = useNavigation()
 
   const routes = useRoute()
 
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#FFF'
+      }}>
       <View style={styles.Back}>
 
         {/* Head */}
@@ -23,25 +27,41 @@ const HomeComp = () => {
           <View style={styles.Head}>
             <FAB icon={'menu'}
               onPress={() => navigation.openDrawer()}
+              style={{
+                marginRight: responsiveWidth(10),
+                height: responsiveHeight(8),
+                width: responsiveWidth(12),
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#FFF',
+              }}
             />
             <Image
               style={{
-                height: '100%',
-                width: '30%',
+                height: responsiveHeight(10),
+                width: responsiveWidth(30),
                 tintColor: '#FFF'
               }}
               source={require('../../assets/Logo.png')} />
             <FAB
               icon={'logout'}
               onPress={() => navigation.navigate('Login')}
+              style={{
+                marginLeft: responsiveWidth(10),
+                height: responsiveHeight(8),
+                width: responsiveWidth(12),
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#FFF'
+              }}
             />
           </View>
-          <View style={{ alignItems: 'center', }}>
+          <View style={{ alignItems: 'center', height:responsiveHeight(10)}}>
             <Text
               style={{
                 color: '#FFFFFF',
                 fontFamily: 'cursive',
-                fontSize: 24
+                fontSize: responsiveFontSize(2),
               }}>
               Welcome Back {routes.params?.userName}
             </Text>
@@ -57,7 +77,8 @@ const HomeComp = () => {
             justifyContent: 'center',
             flexDirection: "row",
             alignItems: 'center',
-            width: '90%', height: '100%',
+            width: responsiveWidth(90),
+            height: responsiveHeight(40),
             alignSelf: 'center',
             zIndex: 1000
           }}>
@@ -66,11 +87,15 @@ const HomeComp = () => {
               <Card
                 key={elem.index}
                 style={styles.card}
-                onPress={elem.action}>
+                onPress={elem.action}
+              >
                 {elem.icon}
                 <Text
-                  alignSelf={'center'}
-                  padding={5}
+                  style={{
+                    fontSize: responsiveFontSize(1.2),
+                    textAlign: 'center',
+                    padding: responsiveWidth(2)
+                  }}
                 >{elem.name}</Text>
               </Card>)
           })}
@@ -83,24 +108,25 @@ export default HomeComp
 const styles = StyleSheet.create({
   Back: {
     backgroundColor: '#9932D8',
-    height: '40%',
+    height: responsiveHeight(40),
     zIndex: 999,
   },
   Head: {
-    height: '65%',
+    height: responsiveHeight(20),
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    paddingTop: 20,
+    paddingTop: responsiveHeight(2),
   },
   card: {
-    width: "30%",
-    height: "50%",
-    padding: 10,
-    margin: 5,
+    width: responsiveWidth(28),
+    height: responsiveHeight(20),
+    padding: responsiveHeight(4),
+    margin: responsiveWidth(1),
     alignItems: 'center',
     justifyContent: 'center',
-  }
+    backgroundColor: '#FFF',
+  },
 })
 
 const cards = [
@@ -109,9 +135,10 @@ const cards = [
     icon:
       <Icon1
         name='user'
-        size={50}
+        size={responsiveWidth(10)}
         color={'#9932D8'}
-        alignSelf={'center'} />,
+        alignSelf={'center'}
+      />,
     name: 'Profile',
     action: () => navigation.navigate('Profile')
   },
@@ -120,9 +147,10 @@ const cards = [
     icon:
       <Icon
         name='bookmark-added'
-        size={50}
+        size={responsiveWidth(10)}
         color={'#9932D8'}
-        alignSelf={'center'} />,
+        alignSelf={'center'}
+      />,
     name: 'Attendance',
     action: () => navigation.navigate('Profile')
   },
@@ -131,7 +159,7 @@ const cards = [
     icon:
       <Icon
         name='schedule'
-        size={50}
+        size={responsiveWidth(10)}
         color={'#9932D8'}
         alignSelf={'center'} />,
     name: 'Schedule',
