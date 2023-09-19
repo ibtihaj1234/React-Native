@@ -4,11 +4,123 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { FAB, Card } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon1 from 'react-native-vector-icons/Entypo'
-import { responsiveWidth, responsiveHeight, responsiveFontSize } from 'react-native-responsive-dimensions'
+import Icon2 from 'react-native-vector-icons/FontAwesome5'
+import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon4 from 'react-native-vector-icons/Octicons'
+import { responsiveWidth, responsiveHeight, responsiveFontSize, responsiveScreenFontSize } from 'react-native-responsive-dimensions'
 
 
 const HomeComp = () => {
 
+  const cards = [
+    {
+      id: 1,
+      icon:
+        <Icon1
+          name='user'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Profile',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 2,
+      icon:
+        <Icon
+          name='bookmark-added'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Attendance',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 3,
+      icon:
+        <Icon
+          name='schedule'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'} />,
+      name: 'Schedule',
+      action: () => navigation.navigate('Schedule')
+    },
+    {
+      id: 4,
+      icon:
+        <Icon2
+          name='graduation-cap'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Curriculum',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 5,
+      icon:
+        <Icon3
+          name='bell-ring'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Announcement',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 6,
+      icon:
+        <Icon2
+          name='dollar-sign'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Fees',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 7,
+      icon:
+        <Icon3
+          name='calendar-month'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Calendar',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 8,
+      icon:
+        <Icon
+          name='library-books'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Digital Library',
+      action: () => navigation.navigate('Profile')
+    },
+    {
+      id: 9,
+      icon:
+        <Icon4
+          name='graph'
+          size={responsiveWidth(10)}
+          color={'#9932D8'}
+          alignSelf={'center'}
+        />,
+      name: 'Progress',
+      action: () => navigation.navigate('Profile')
+    },
+  ]
   const navigation = useNavigation()
 
   const routes = useRoute()
@@ -56,7 +168,7 @@ const HomeComp = () => {
               }}
             />
           </View>
-          <View style={{ alignItems: 'center', height:responsiveHeight(10)}}>
+          <View style={{ alignItems: 'center', height: responsiveHeight(10) }}>
             <Text
               style={{
                 color: '#FFFFFF',
@@ -92,9 +204,9 @@ const HomeComp = () => {
                 {elem.icon}
                 <Text
                   style={{
-                    fontSize: responsiveFontSize(1.2),
+                    fontSize: responsiveScreenFontSize(1.6),
                     textAlign: 'center',
-                    padding: responsiveWidth(2)
+                    padding: responsiveWidth(1)
                   }}
                 >{elem.name}</Text>
               </Card>)
@@ -121,78 +233,10 @@ const styles = StyleSheet.create({
   card: {
     width: responsiveWidth(28),
     height: responsiveHeight(20),
-    padding: responsiveHeight(4),
+    // padding: responsiveHeight(2),
     margin: responsiveWidth(1),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFF',
   },
 })
-
-const cards = [
-  {
-    id: 1,
-    icon:
-      <Icon1
-        name='user'
-        size={responsiveWidth(10)}
-        color={'#9932D8'}
-        alignSelf={'center'}
-      />,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 2,
-    icon:
-      <Icon
-        name='bookmark-added'
-        size={responsiveWidth(10)}
-        color={'#9932D8'}
-        alignSelf={'center'}
-      />,
-    name: 'Attendance',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 3,
-    icon:
-      <Icon
-        name='schedule'
-        size={responsiveWidth(10)}
-        color={'#9932D8'}
-        alignSelf={'center'} />,
-    name: 'Schedule',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 4,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 5,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 6,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 7,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 8,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-  {
-    id: 9,
-    name: 'Profile',
-    action: () => navigation.navigate('Profile')
-  },
-]

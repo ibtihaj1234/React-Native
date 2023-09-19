@@ -1,12 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { responsiveFontSize } from 'react-native-responsive-dimensions'
 
-const Header = ({ title }) => {
+
+const Header = ({ title, icon }) => {
+
     return (
         <View style={styles.header}>
+            <View>
+                {icon}
+            </View>
             <Text
                 style={{
-                    fontSize: 28,
+                    fontSize: responsiveFontSize(4),
                     color: '#FFFFFF',
                     flex: 1,
                     textAlign: 'center',

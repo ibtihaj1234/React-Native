@@ -32,7 +32,7 @@ const LoginComp = () => {
                     <Image
                         style={{
                             height: responsiveHeight(20),
-                            width: responsiveWidth(40)
+                            width: responsiveWidth(40),
                         }}
                         source={require('./../../assets/Logo.png')} />
                 </View>
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         width: responsiveWidth(100),
         alignItems: 'center',
+        zIndex: 999
     },
     Form: {
         height: responsiveHeight(60),
