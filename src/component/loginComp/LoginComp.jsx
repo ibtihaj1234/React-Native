@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
-import { useNavigation, useRoute } from '@react-navigation/native'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import { TextInput, Button } from 'react-native-paper'
+import {
+    StyleSheet,
+    View,
+    Image,
+    Alert
+} from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import {
+    TextInput,
+    Button
+} from 'react-native-paper'
 import Header from '../header/Header'
-import { responsiveHeight, responsiveWidth, } from 'react-native-responsive-dimensions'
+import {
+    responsiveHeight,
+    responsiveWidth,
+} from 'react-native-responsive-dimensions'
+import En from '../../constants/lang/En'
+import Colors from '../../constants/colors/Colors'
 
 const LoginComp = () => {
+
+    // Hooks
 
     const navigation = useNavigation()
 
@@ -15,27 +30,50 @@ const LoginComp = () => {
         password: "",
     })
 
+    // Change Function
+
     const handleChange = (key, value) => {
         setState(prev => ({ ...prev, [key]: value }))
     }
 
+    // Login Function
+
     const handleLogin = () => {
-        navigation.navigate('Home', state)
+
+        if (state.userName && state.email && state.password != '') {
+            navigation.navigate('Home', state)
+            setState({
+                userName: '',
+                email: '',
+                password: ''
+            })
+        }
+        else {
+            Alert.alert('All fields are mendatory')
+        }
+
     }
 
     return (
         <>
-            <Header title='Login' />
+
+            {/* Header */}
+
+            <Header title={En.login} />
+
+            {/* Screen */}
 
             <View style={[styles.Page]}>
-                <View style={{ height: responsiveHeight(20) }}>
-                    <Image
-                        style={{
-                            height: responsiveHeight(20),
-                            width: responsiveWidth(40),
-                        }}
-                        source={require('./../../assets/Logo.png')} />
-                </View>
+                <Image
+                    style={{
+                        height: responsiveHeight(20),
+                        width: responsiveWidth(40),
+                    }}
+                    resizeMode='cover'
+                    source={require('./../../assets/Logo.png')} />
+
+                {/* Form */}
+
                 <View style={styles.Form}>
                     <TextInput
                         placeholder='Type name'
@@ -47,6 +85,7 @@ const LoginComp = () => {
                     />
                     <TextInput
                         placeholder='Type Email'
+                        textContentType='emailAddress'
                         label='Email'
                         mode='outlined'
                         value={state.email}
@@ -60,13 +99,14 @@ const LoginComp = () => {
                         value={state.password}
                         onChangeText={(e) => handleChange("password", e)}
                         keyboardType='visible-password'
+                        secureTextEntry
                     />
                     <Button
-                        buttonColor='#9932D8'
-                        textColor='#FFFFFF'
+                        buttonColor={Colors.purple}
+                        textColor={Colors.white}
                         mode='contained'
                         onPress={handleLogin}
-                    >Login</Button>
+                    >{En.login}</Button>
                 </View>
             </View>
         </>
@@ -81,12 +121,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         width: responsiveWidth(100),
         alignItems: 'center',
-        zIndex: 999
+        zIndex: 999,
     },
     Form: {
         height: responsiveHeight(60),
         gap: responsiveHeight(1),
         width: responsiveWidth(80),
         justifyContent: 'flex-start',
+        zIndex: 1000,
     }
 })

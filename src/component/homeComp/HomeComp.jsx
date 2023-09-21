@@ -1,16 +1,36 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
-import { FAB, Card } from 'react-native-paper'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image
+} from 'react-native'
+import {
+  useNavigation,
+  useRoute
+} from '@react-navigation/native'
+import {
+  FAB,
+  Card
+} from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icon1 from 'react-native-vector-icons/Entypo'
 import Icon2 from 'react-native-vector-icons/FontAwesome5'
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons'
 import Icon4 from 'react-native-vector-icons/Octicons'
-import { responsiveWidth, responsiveHeight, responsiveFontSize, responsiveScreenFontSize } from 'react-native-responsive-dimensions'
+import {
+  responsiveWidth,
+  responsiveHeight,
+  responsiveFontSize,
+  responsiveScreenFontSize
+} from 'react-native-responsive-dimensions'
+import En from '../../constants/lang/En'
+import Colors from '../../constants/colors/Colors'
 
 
 const HomeComp = () => {
+
+  // Cards Array
 
   const cards = [
     {
@@ -121,6 +141,9 @@ const HomeComp = () => {
       action: () => navigation.navigate('Profile')
     },
   ]
+
+  // Hooks
+
   const navigation = useNavigation()
 
   const routes = useRoute()
@@ -129,7 +152,7 @@ const HomeComp = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#FFF'
+        backgroundColor: Colors.white
       }}>
       <View style={styles.Back}>
 
@@ -145,14 +168,14 @@ const HomeComp = () => {
                 width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#FFF',
+                backgroundColor: Colors.white,
               }}
             />
             <Image
               style={{
                 height: responsiveHeight(10),
                 width: responsiveWidth(30),
-                tintColor: '#FFF'
+                tintColor: Colors.white
               }}
               source={require('../../assets/Logo.png')} />
             <FAB
@@ -164,18 +187,25 @@ const HomeComp = () => {
                 width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#FFF'
+                backgroundColor: Colors.white
               }}
             />
           </View>
-          <View style={{ alignItems: 'center', height: responsiveHeight(10) }}>
+
+          {/* Welcoming*/}
+
+          <View
+            style={{
+              alignItems: 'center',
+              height: responsiveHeight(10)
+            }}>
             <Text
               style={{
-                color: '#FFFFFF',
+                color: Colors.white,
                 fontFamily: 'cursive',
                 fontSize: responsiveFontSize(2),
               }}>
-              Welcome Back {routes.params?.userName}
+              {En.WB} {routes.params?.userName}
             </Text>
           </View>
         </View>
@@ -194,10 +224,10 @@ const HomeComp = () => {
             alignSelf: 'center',
             zIndex: 1000
           }}>
-          {cards.map((elem) => {
+          {cards.map((elem, index) => {
             return (
               <Card
-                key={elem.index}
+                key={index}
                 style={styles.card}
                 onPress={elem.action}
               >
@@ -219,7 +249,7 @@ const HomeComp = () => {
 export default HomeComp
 const styles = StyleSheet.create({
   Back: {
-    backgroundColor: '#9932D8',
+    backgroundColor: Colors.purple,
     height: responsiveHeight(40),
     zIndex: 999,
   },
@@ -233,10 +263,9 @@ const styles = StyleSheet.create({
   card: {
     width: responsiveWidth(28),
     height: responsiveHeight(20),
-    // padding: responsiveHeight(2),
     margin: responsiveWidth(1),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: Colors.white,
   },
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../screens/views/home/Home';
 import Login from '../screens/auth/login/Login';
@@ -14,10 +14,10 @@ const Navigation = () => {
     const Drawer = createDrawerNavigator()
 
     return (
-        <Drawer.Navigator 
-        initialRouteName='Home'
-        screenOptions={{headerShown:false}}
-        drawerContent={(navigation) => <DrawerComp {...navigation}/>}>
+        <Drawer.Navigator
+            initialRouteName='Login'
+            screenOptions={{ headerShown: false }}
+            drawerContent={(navigation) => <DrawerComp {...navigation} />}>
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Login" component={Login} />
             <Drawer.Screen name="Signup" component={Signup} />

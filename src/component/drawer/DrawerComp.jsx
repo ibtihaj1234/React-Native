@@ -1,28 +1,39 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Avatar, Drawer } from 'react-native-paper'
+import {
+  StyleSheet,
+  View
+} from 'react-native'
+import {
+  Avatar,
+  Drawer
+} from 'react-native-paper'
+import {
+  responsiveHeight,
+  responsiveWidth
+} from 'react-native-responsive-dimensions'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import Colors from '../../constants/colors/Colors'
 
 
 const DrawerComp = ({ navigation }) => {
   return (
     <View
       style={{
-        height: '100%',
-        backgroundColor: '#9932D8',
-        paddingTop: 20,
+        height: responsiveHeight(100),
+        backgroundColor: Colors.purple,
+        paddingTop: responsiveHeight(5),
         alignItems: 'space-evenly',
       }}>
 
       <Drawer.Section style={styles.Section1}>
 
         <Avatar.Icon
-          size={70}
+          size={responsiveWidth(25)}
           icon={require('../../assets/Avatar.png')}
           style={{
             alignSelf: 'center',
-            margin: 30,
-            backgroundColor: '#FFF'
+            margin: responsiveWidth(5),
+            backgroundColor: Colors.white
           }} />
 
       </Drawer.Section>
@@ -35,7 +46,7 @@ const DrawerComp = ({ navigation }) => {
               <Icon
                 name={elem.icon}
                 size={size}
-                color={"#FFF"} />
+                color={Colors.white} />
             )
           }}
           label={elem.label}
@@ -50,7 +61,7 @@ export default DrawerComp
 
 const styles = StyleSheet.create({
   Section1: {
-    width: '100%',
+    width: responsiveWidth(70),
     flexDirection: 'column',
   }
 })
