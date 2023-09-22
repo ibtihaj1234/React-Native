@@ -19,7 +19,13 @@ const Navigation = () => {
             screenOptions={{ headerShown: false }}
             drawerContent={(navigation) => <DrawerComp {...navigation} />}>
             <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Login" component={Login} />
+            <Drawer.Screen name="Login" component={Login}
+                options={
+                    ({ routes }) => (
+                        { swipeEnabled: false }
+                    )
+                }
+            />
             <Drawer.Screen name="Signup" component={Signup} />
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Schedule" component={Schedule} />

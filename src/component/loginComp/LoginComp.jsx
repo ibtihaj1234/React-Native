@@ -59,7 +59,7 @@ const LoginComp = () => {
 
             {/* Header */}
 
-            <Header title={En.login} />
+            <Header title={En.LOGIN} />
 
             {/* Screen */}
 
@@ -106,7 +106,7 @@ const LoginComp = () => {
                         textColor={Colors.white}
                         mode='contained'
                         onPress={handleLogin}
-                    >{En.login}</Button>
+                    >{En.LOGIN}</Button>
                 </View>
             </View>
         </>

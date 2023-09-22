@@ -39,10 +39,10 @@ const HomeComp = () => {
         <Icon1
           name='user'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Profile',
+      name: En.PROFILE,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -51,10 +51,10 @@ const HomeComp = () => {
         <Icon
           name='bookmark-added'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Attendance',
+      name: En.ATTENDANCE,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -63,9 +63,9 @@ const HomeComp = () => {
         <Icon
           name='schedule'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'} />,
-      name: 'Schedule',
+      name: En.SCHEDULE,
       action: () => navigation.navigate('Schedule')
     },
     {
@@ -74,10 +74,10 @@ const HomeComp = () => {
         <Icon2
           name='graduation-cap'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Curriculum',
+      name: En.CURRICULUM,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -86,10 +86,10 @@ const HomeComp = () => {
         <Icon3
           name='bell-ring'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Announcement',
+      name: En.ANNOUNCEMENT,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -98,10 +98,10 @@ const HomeComp = () => {
         <Icon2
           name='dollar-sign'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Fees',
+      name: En.FEES,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -110,10 +110,10 @@ const HomeComp = () => {
         <Icon3
           name='calendar-month'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Calendar',
+      name: En.CALENDAR,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -122,10 +122,10 @@ const HomeComp = () => {
         <Icon
           name='library-books'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Digital Library',
+      name: En.DIGITAL_LIBRARY,
       action: () => navigation.navigate('Profile')
     },
     {
@@ -134,10 +134,10 @@ const HomeComp = () => {
         <Icon4
           name='graph'
           size={responsiveWidth(10)}
-          color={'#9932D8'}
+          color={Colors.THEME_PURPLE}
           alignSelf={'center'}
         />,
-      name: 'Progress',
+      name: En.PROGRESS,
       action: () => navigation.navigate('Profile')
     },
   ]
@@ -152,7 +152,7 @@ const HomeComp = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: Colors.white
+        backgroundColor: Colors.LIGHT_THEME
       }}>
       <View style={styles.Back}>
 
@@ -160,7 +160,8 @@ const HomeComp = () => {
 
         <View>
           <View style={styles.Head}>
-            <FAB icon={'menu'}
+            <FAB
+              icon={'menu'}
               onPress={() => navigation.openDrawer()}
               style={{
                 marginRight: responsiveWidth(10),
@@ -168,14 +169,14 @@ const HomeComp = () => {
                 width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.LIGHT_THEME,
               }}
             />
             <Image
               style={{
                 height: responsiveHeight(10),
                 width: responsiveWidth(30),
-                tintColor: Colors.white
+                tintColor: Colors.LIGHT_THEME
               }}
               source={require('../../assets/Logo.png')} />
             <FAB
@@ -187,7 +188,7 @@ const HomeComp = () => {
                 width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: Colors.white
+                backgroundColor: Colors.LIGHT_THEME
               }}
             />
           </View>
@@ -201,7 +202,7 @@ const HomeComp = () => {
             }}>
             <Text
               style={{
-                color: Colors.white,
+                color: Colors.LIGHT_THEME,
                 fontFamily: 'cursive',
                 fontSize: responsiveFontSize(2),
               }}>
@@ -236,7 +237,8 @@ const HomeComp = () => {
                   style={{
                     fontSize: responsiveScreenFontSize(1.6),
                     textAlign: 'center',
-                    padding: responsiveWidth(1)
+                    padding: responsiveWidth(1),
+                    color: Colors.THEME_PURPLE
                   }}
                 >{elem.name}</Text>
               </Card>)
@@ -249,7 +251,7 @@ const HomeComp = () => {
 export default HomeComp
 const styles = StyleSheet.create({
   Back: {
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.THEME_PURPLE,
     height: responsiveHeight(40),
     zIndex: 999,
   },
@@ -266,6 +268,6 @@ const styles = StyleSheet.create({
     margin: responsiveWidth(1),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.LIGHT_THEME,
   },
 })
