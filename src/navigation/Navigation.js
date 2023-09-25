@@ -7,6 +7,7 @@ import DrawerComp from '../component/drawer/DrawerComp';
 import Signup from '../screens/auth/signup/Signup';
 import Profile from '../screens/views/profile/Profile';
 import Schedule from '../screens/views/schedue/Schedule';
+import Landing from '../screens/views/landing/Landing';
 
 
 
@@ -15,7 +16,7 @@ const Navigation = () => {
 
     return (
         <Drawer.Navigator
-            initialRouteName='Login'
+            initialRouteName="Landing"
             screenOptions={{ headerShown: false }}
             drawerContent={(navigation) => <DrawerComp {...navigation} />}>
             <Drawer.Screen name="Home" component={Home} />
@@ -29,6 +30,7 @@ const Navigation = () => {
             <Drawer.Screen name="Signup" component={Signup} />
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Schedule" component={Schedule} />
+            <Drawer.Screen name="Landing" component={Landing} />
         </Drawer.Navigator>
     )
 }

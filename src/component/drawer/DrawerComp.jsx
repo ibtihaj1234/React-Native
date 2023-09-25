@@ -42,20 +42,20 @@ const DrawerComp = ({ navigation }) => {
       </Drawer.Section>
 
       {list.map(elem => (
-        <Drawer.Item
+        <Drawer.Item style={{ justifyContent: 'center', }}
           key={elem.id}
           icon={() => {
             return (
               <Icon
                 name={elem.icon}
-                size={responsiveWidth(6)}
+                size={responsiveWidth(4)}
                 color={Colors.LIGHT_THEME} />
             )
           }}
           label={<Text
             style={{
               color: Colors.LIGHT_THEME,
-              fontSize: responsiveFontSize(2)
+              fontSize: responsiveFontSize(1)
             }}
           >{elem.label}</Text>}
           onPress={() => navigation.navigate(elem.onPress)} />
@@ -69,7 +69,6 @@ export default DrawerComp
 
 const styles = StyleSheet.create({
   Section1: {
-    width: responsiveWidth(70),
     flexDirection: 'column',
   }
 })

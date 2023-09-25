@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Header from '../header/Header'
 import { DataTable } from 'react-native-paper'
 
@@ -51,8 +51,9 @@ const ScheduleComp = () => {
 
       {/* Table */}
 
-      <View
-        style={{
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
           marginTop: responsiveWidth(4),
           width: responsiveWidth(100),
           justifyContent: 'space-evenly'
@@ -68,7 +69,7 @@ const ScheduleComp = () => {
 
         {sub.map((elem, index) => {
           return (
-            <DataTable.Row key={index}>
+            <DataTable.Row style={{ marginTop: responsiveWidth(0.2), marginLeft: responsiveWidth(0.2) }} key={index}>
               <DataTable.Cell style={styles.tableItem}>{elem.day}</DataTable.Cell>
               <DataTable.Cell style={styles.tableItem}>{elem.first}</DataTable.Cell>
               <DataTable.Cell style={styles.tableItem} >{elem.second}</DataTable.Cell>
@@ -79,7 +80,7 @@ const ScheduleComp = () => {
           )
         })}
 
-      </View>
+      </ScrollView>
 
     </View>
   )
@@ -90,6 +91,8 @@ export default ScheduleComp
 const styles = StyleSheet.create({
   tableItem: {
     borderWidth: responsiveWidth(0.2),
-    padding: responsiveWidth(2),
+    paddingLeft: responsiveWidth(2),
+    fontSize: responsiveFontSize(2),
+    elevation: 4
   },
 })

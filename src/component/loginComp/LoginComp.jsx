@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
     Image,
-    Alert
-} from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+    Alert,
+    ScrollView
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {
     TextInput,
     Button
-} from 'react-native-paper'
-import Header from '../header/Header'
+} from 'react-native-paper';
+import Header from '../header/Header';
 import {
     responsiveHeight,
     responsiveWidth,
-} from 'react-native-responsive-dimensions'
-import En from '../../constants/lang/En'
-import Colors from '../../constants/colors/Colors'
+} from 'react-native-responsive-dimensions';
+import En from '../../constants/lang/En';
+import Colors from '../../constants/colors/Colors';
 
 const LoginComp = () => {
 
@@ -55,7 +56,7 @@ const LoginComp = () => {
     }
 
     return (
-        <>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
 
             {/* Header */}
 
@@ -64,6 +65,9 @@ const LoginComp = () => {
             {/* Screen */}
 
             <View style={[styles.Page]}>
+
+                {/* Image */}
+
                 <Image
                     style={{
                         height: responsiveHeight(20),
@@ -109,7 +113,7 @@ const LoginComp = () => {
                     >{En.LOGIN}</Button>
                 </View>
             </View>
-        </>
+        </ScrollView>
     )
 }
 
@@ -121,13 +125,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         width: responsiveWidth(100),
         alignItems: 'center',
-        zIndex: 999,
     },
     Form: {
         height: responsiveHeight(60),
         gap: responsiveHeight(1),
         width: responsiveWidth(80),
         justifyContent: 'flex-start',
-        zIndex: 1000,
     }
 })

@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native'
 import {
   useNavigation,
@@ -160,18 +161,23 @@ const HomeComp = () => {
 
         <View>
           <View style={styles.Head}>
-            <FAB
-              icon={'menu'}
+            <TouchableOpacity
               onPress={() => navigation.openDrawer()}
               style={{
                 marginRight: responsiveWidth(10),
                 height: responsiveHeight(8),
-                width: responsiveWidth(12),
+                width: responsiveWidth(10),
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: Colors.LIGHT_THEME,
+                borderRadius: responsiveWidth(2)
               }}
-            />
+            >
+              <Icon1
+                name='menu'
+                size={responsiveWidth(6)}
+              />
+            </TouchableOpacity>
             <Image
               style={{
                 height: responsiveHeight(10),
@@ -179,18 +185,23 @@ const HomeComp = () => {
                 tintColor: Colors.LIGHT_THEME
               }}
               source={require('../../assets/Logo.png')} />
-            <FAB
-              icon={'logout'}
+            <TouchableOpacity
               onPress={() => navigation.navigate('Login')}
               style={{
                 marginLeft: responsiveWidth(10),
                 height: responsiveHeight(8),
-                width: responsiveWidth(12),
+                width: responsiveWidth(10),
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: Colors.LIGHT_THEME
+                backgroundColor: Colors.LIGHT_THEME,
+                borderRadius: responsiveWidth(2)
               }}
-            />
+            >
+              <Icon
+                name='logout'
+                size={responsiveWidth(6)}
+              />
+            </TouchableOpacity>
           </View>
 
           {/* Welcoming*/}
