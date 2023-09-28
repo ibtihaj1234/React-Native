@@ -1,10 +1,12 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Header from '../header/Header'
-import { DataTable } from 'react-native-paper'
+import { Button, DataTable } from 'react-native-paper'
+import En from '../../constants/lang/En'
+import Colors from '../../constants/colors/Colors'
 
 const ScheduleComp = () => {
 
@@ -48,6 +50,48 @@ const ScheduleComp = () => {
           />
         }
       />
+
+      <View
+        style={{
+          margin: responsiveWidth(2),
+          padding: responsiveWidth(2),
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            width: responsiveWidth(40),
+            height: responsiveHeight(10),
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderColor: Colors.THEME_PURPLE,
+            borderWidth: responsiveWidth(0.2)
+          }}
+        ><Text
+          style={{
+            fontSize: responsiveFontSize(2)
+          }}
+        >{En.CLASS}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            width: responsiveWidth(40),
+            height: responsiveHeight(10),
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderColor: Colors.THEME_PURPLE,
+            borderWidth: responsiveWidth(0.2)
+          }}
+        ><Text
+          style={{
+            fontSize: responsiveFontSize(2)
+          }}
+        >{En.CLASS}</Text>
+        </TouchableOpacity>
+      </View>
 
       {/* Table */}
 

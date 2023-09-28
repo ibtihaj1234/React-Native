@@ -149,6 +149,8 @@ const HomeComp = () => {
 
   const routes = useRoute()
 
+  console.log('Routes ====>', routes.params?.state?.email);
+
   return (
     <View
       style={{
@@ -166,7 +168,7 @@ const HomeComp = () => {
               style={{
                 marginRight: responsiveWidth(10),
                 height: responsiveHeight(8),
-                width: responsiveWidth(10),
+                width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: Colors.LIGHT_THEME,
@@ -190,7 +192,7 @@ const HomeComp = () => {
               style={{
                 marginLeft: responsiveWidth(10),
                 height: responsiveHeight(8),
-                width: responsiveWidth(10),
+                width: responsiveWidth(12),
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: Colors.LIGHT_THEME,
@@ -217,7 +219,7 @@ const HomeComp = () => {
                 fontFamily: 'cursive',
                 fontSize: responsiveFontSize(2),
               }}>
-              {En.WB} {routes.params?.userName}
+              {En.WB} {routes.params?.state?.userName}
             </Text>
           </View>
         </View>

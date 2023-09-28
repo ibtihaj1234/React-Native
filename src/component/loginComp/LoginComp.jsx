@@ -41,18 +41,43 @@ const LoginComp = () => {
 
     const handleLogin = () => {
 
-        if (state.userName && state.email && state.password != '') {
-            navigation.navigate('Home', state)
+        let isValid = true
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+        if (state.userName == '') {
+            Alert.alert('User name is mendatory')
+            isValid = false
+            return;
+        }
+        else {
+        }
+
+        if (state.email == '') {
+            Alert.alert('Email is mendatory')
+            isValid = false
+            return;
+        } else if (!emailRegex.test(state.email)) {
+            Alert.alert('Email pattern not valid'),
+                isValid = false
+            return;
+        } else {
+        }
+
+        if (state.password == '') {
+            Alert.alert('Password is mendatory')
+            isValid = false
+            return;
+        } else {
+        }
+
+        if (isValid) {
+            navigation.navigate('Home', { state })
             setState({
                 userName: '',
                 email: '',
-                password: ''
+                password: '',
             })
         }
-        else {
-            Alert.alert('All fields are mendatory')
-        }
-
     }
 
     return (
@@ -99,11 +124,11 @@ const LoginComp = () => {
                     <TextInput
                         placeholder='Type Password'
                         label='Password'
+                        secureTextEntry
                         mode='outlined'
                         value={state.password}
                         onChangeText={(e) => handleChange("password", e)}
                         keyboardType='visible-password'
-                        secureTextEntry
                     />
                     <Button
                         buttonColor={Colors.purple}

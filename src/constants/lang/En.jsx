@@ -14,5 +14,7 @@ export default En = {
     DIGITAL_LIBRARY: 'Digital Library',
     PROGRESS: 'Progress',
     HOME: 'Home',
-    TRANSPORT: 'Transport'
+    TRANSPORT: 'Transport',
+    EXAM: 'Exam',
+    CLASS: 'Class'
 }
