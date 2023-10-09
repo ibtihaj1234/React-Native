@@ -11,13 +11,13 @@ import {
     TextInput,
     Button
 } from 'react-native-paper';
-import Header from '../header/Header';
 import {
     responsiveHeight,
     responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import En from '../../constants/lang/En';
 import Colors from '../../constants/colors/Colors';
+import AuthHeader from '../header/AuthHeader';
 
 const LoginComp = () => {
 
@@ -85,7 +85,7 @@ const LoginComp = () => {
 
             {/* Header */}
 
-            <Header title={En.LOGIN} />
+            <AuthHeader title={En.LOGIN} />
 
             {/* Screen */}
 

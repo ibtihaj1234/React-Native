@@ -19,7 +19,6 @@ const Navigation = () => {
             initialRouteName="Landing"
             screenOptions={{ headerShown: false }}
             drawerContent={(navigation) => <DrawerComp {...navigation} />}>
-            <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Login" component={Login}
                 options={
                     ({ routes }) => (
@@ -28,6 +27,7 @@ const Navigation = () => {
                 }
             />
             <Drawer.Screen name="Signup" component={Signup} />
+            <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Schedule" component={Schedule} />
             <Drawer.Screen name="Landing" component={Landing} />

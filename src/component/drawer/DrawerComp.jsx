@@ -55,7 +55,7 @@ const DrawerComp = ({ navigation }) => {
           label={<Text
             style={{
               color: Colors.LIGHT_THEME,
-              fontSize: responsiveFontSize(1)
+              fontSize: responsiveFontSize(2)
             }}
           >{elem.label}</Text>}
           onPress={() => navigation.navigate(elem.onPress)} />

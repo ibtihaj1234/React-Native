@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, View } from 'react-native'
 import LoginComp from '../../../component/loginComp/LoginComp'
 
 const Login = () => {
+
   return (
     <View style={{ flex: 1 }}>
       <LoginComp />

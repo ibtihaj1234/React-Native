@@ -1,14 +1,28 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { responsiveFontSize } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-dimensions'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
-const Header = ({ title, icon }) => {
+
+const Header = ({ title }) => {
+
+    const navigation = useNavigation()
 
     return (
         <View style={styles.header}>
             <View>
-                {icon}
+                <Icon
+                    name='arrow-back-ios'
+                    size={responsiveHeight(4)}
+                    style={{
+                        height: responsiveHeight(4),
+                        color: '#FFF'
+                    }}
+                    onPress={() => navigation.goBack()}
+                />
+
             </View>
             <Text
                 style={{

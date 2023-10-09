@@ -1,35 +1,15 @@
-import React from 'react'
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import React, { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import Header from '../header/Header'
-import { Button, DataTable } from 'react-native-paper'
 import En from '../../constants/lang/En'
 import Colors from '../../constants/colors/Colors'
+import ClassTable from './ClassTable'
+import ExamTable from './ExamTable'
 
 const ScheduleComp = () => {
 
-  const navigation = useNavigation()
-
-  const sub = [
-    {
-      day: 'Mon',
-      first: 'Eng',
-      second: 'Urdu',
-      third: 'Maths',
-      fourth: 'Science',
-      fifth: 'SSt',
-    },
-    {
-      day: 'Tue',
-      first: 'Drawing',
-      second: 'sindhi',
-      third: 'history',
-      fourth: 'computer',
-      fifth: 'SSt',
-    },
-  ]
+  const [classPage, setClassPage] = useState(true)
 
   return (
     <View>
@@ -38,93 +18,56 @@ const ScheduleComp = () => {
 
       <Header
         title={'Schedule'}
-        icon={
-          <Icon
-            name='arrow-back-ios'
-            size={responsiveHeight(4)}
-            style={{
-              height: responsiveHeight(4),
-              color: '#FFF'
-            }}
-            onPress={() => navigation.goBack()}
-          />
-        }
       />
+
+      {/* Buttons */}
 
       <View
         style={{
-          margin: responsiveWidth(2),
-          padding: responsiveWidth(2),
+          margin: responsiveWidth(1),
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-evenly',
+          elevation: 8,
         }}
       >
-        <TouchableOpacity
-          style={{
-            width: responsiveWidth(40),
-            height: responsiveHeight(10),
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderColor: Colors.THEME_PURPLE,
-            borderWidth: responsiveWidth(0.2)
-          }}
-        ><Text
-          style={{
-            fontSize: responsiveFontSize(2)
-          }}
-        >{En.CLASS}</Text>
-        </TouchableOpacity>
+
+        {/* Class_Button */}
 
         <TouchableOpacity
-          style={{
-            width: responsiveWidth(40),
-            height: responsiveHeight(10),
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderColor: Colors.THEME_PURPLE,
-            borderWidth: responsiveWidth(0.2)
-          }}
-        ><Text
-          style={{
-            fontSize: responsiveFontSize(2)
-          }}
-        >{En.CLASS}</Text>
+          style={[styles.button,
+          classPage ? styles.selectedStyle : null
+          ]}
+          onPress={() => setClassPage(true)}
+        >
+          <Text
+            style={[
+              fontSize = responsiveFontSize(2),
+              classPage ? { color: Colors.LIGHT_THEME } : null
+            ]}
+          >{En.CLASS}</Text>
+        </TouchableOpacity>
+
+        {/* Exam_Button */}
+
+        <TouchableOpacity
+          style={[styles.button,
+          !classPage ? styles.selectedStyle : null
+          ]}
+          onPress={() => setClassPage(false)}
+        >
+          <Text
+            style={[
+              fontSize = responsiveFontSize(2),
+              !classPage ? { color: Colors.LIGHT_THEME } : null
+            ]}
+          >{En.EXAM}</Text>
         </TouchableOpacity>
       </View>
 
       {/* Table */}
 
-      <ScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-          marginTop: responsiveWidth(4),
-          width: responsiveWidth(100),
-          justifyContent: 'space-evenly'
-        }}>
-        <DataTable.Row>
-          <DataTable.Title style={styles.tableItem} >Classes</DataTable.Title>
-          <DataTable.Cell style={styles.tableItem}>1</DataTable.Cell>
-          <DataTable.Cell style={styles.tableItem}>2</DataTable.Cell>
-          <DataTable.Cell style={styles.tableItem}>3</DataTable.Cell>
-          <DataTable.Cell style={styles.tableItem}>4</DataTable.Cell>
-          <DataTable.Cell style={styles.tableItem}>5</DataTable.Cell>
-        </DataTable.Row>
-
-        {sub.map((elem, index) => {
-          return (
-            <DataTable.Row style={{ marginTop: responsiveWidth(0.2), marginLeft: responsiveWidth(0.2) }} key={index}>
-              <DataTable.Cell style={styles.tableItem}>{elem.day}</DataTable.Cell>
-              <DataTable.Cell style={styles.tableItem}>{elem.first}</DataTable.Cell>
-              <DataTable.Cell style={styles.tableItem} >{elem.second}</DataTable.Cell>
-              <DataTable.Cell style={styles.tableItem} >{elem.third}</DataTable.Cell>
-              <DataTable.Cell style={styles.tableItem} >{elem.fourth}</DataTable.Cell>
-              <DataTable.Cell style={styles.tableItem} >{elem.fifth}</DataTable.Cell>
-            </DataTable.Row>
-          )
-        })}
-
-      </ScrollView>
+      {classPage ? <ClassTable /> : <ExamTable />}
 
     </View>
   )
@@ -133,10 +76,17 @@ const ScheduleComp = () => {
 export default ScheduleComp
 
 const styles = StyleSheet.create({
-  tableItem: {
-    borderWidth: responsiveWidth(0.2),
-    paddingLeft: responsiveWidth(2),
-    fontSize: responsiveFontSize(2),
-    elevation: 4
+  button: {
+    width: responsiveWidth(45),
+    height: responsiveHeight(10),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.LIGHT_THEME,
+    elevation: 10,
+    borderRadius: responsiveWidth(2)
   },
+  selectedStyle: {
+    backgroundColor: Colors.THEME_PURPLE,
+    color: Colors.LIGHT_THEME,
+  }
 })
