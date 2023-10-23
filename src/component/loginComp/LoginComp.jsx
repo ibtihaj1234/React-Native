@@ -131,7 +131,7 @@ const LoginComp = () => {
                         keyboardType='visible-password'
                     />
                     <Button
-                        buttonColor={Colors.purple}
+                        buttonColor={Colors.THEME_PURPLE}
                         textColor={Colors.white}
                         mode='contained'
                         onPress={handleLogin}

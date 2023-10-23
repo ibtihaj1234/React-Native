@@ -79,7 +79,7 @@ const HomeComp = () => {
           alignSelf={'center'}
         />,
       name: En.CURRICULUM,
-      action: () => navigation.navigate('Profile')
+      action: () => navigation.navigate('Curriculum')
     },
     {
       id: 5,

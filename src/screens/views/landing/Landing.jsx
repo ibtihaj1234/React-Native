@@ -28,7 +28,7 @@ export default Landing
 
 const styles = StyleSheet.create({
     Img: {
-        width: responsiveWidth(80),
+        width: responsiveWidth(90),
         height: responsiveHeight(60),
         alignSelf: 'center',
     }
